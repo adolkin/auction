@@ -1,26 +1,17 @@
+import { ProductItemComponent } from './../product-item/product-item.component';
+import { CarouselComponent } from './../carousel/carousel.component';
 import { Product, ProductService } from './../../services/product.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  products: Product[] = [];
 
-  products: Product[];
-
-  constructor(
-    private productService: ProductService
-  ) { }
-
-  ngOnInit() {
-    this.getProducts();
+  constructor(private productService: ProductService) {
+    this.products = this.productService.getProducts();
   }
-
-  getProducts(): void {
-    this.productService.getProducts()
-      .subscribe(products => this.products = products);
-  }
-
-}
+} 
