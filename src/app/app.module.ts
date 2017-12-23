@@ -13,6 +13,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductService } from './services/product.service';
 import { HomeComponent } from './components/home/home.component';
+import { FilterPipe } from './pipes/filter-pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './components/home/home.component';
     CarouselComponent,
     ProductItemComponent,
     ProductDetailComponent,
-    HomeComponent
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
