@@ -10,6 +10,7 @@
 		<p><app-stars [rating]="product.rating"></app-stars></p>
 	</div>
 </div>
+
 <div class="well" id="reviews-anchor">
 	<div class="row">
 		<div class="col-md-12"></div>
@@ -19,6 +20,8 @@
 			class="btn btn-success btn-green">Leave a Review</button>
 	</div>
 
+<!-- If you have an input property (such as rating) and an output property that has the same name
+		plus the suffin Chane ( such as ratingChange), you're allowed to use the [()] syntax with such properties -->
 	<div [hidden]="isReviewHidden">
 		<div><app-stars [(rating)]="newRating"
 			[readonly]="false" class="large"></app-stars></div>

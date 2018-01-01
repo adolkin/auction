@@ -10,7 +10,7 @@ export class StarsComponent {
   private _rating: number;
   private stars: boolean[];
 
-  private maxStarts: number = 5;
+  private maxStars: number = 5;
 
   @Input() readonly: boolean = true;
   
@@ -18,14 +18,17 @@ export class StarsComponent {
     return this._rating;
   };
 
+  // Use the setter for the input rating. This setter can be invoked either from
+  // within StarsComponent (to render an existing rating) or from its parent
+  // (when the user clicks the starrs)
   set rating(value: number) {
     this._rating = value || 0;
-    this.stars = Array(this.maxStarts).fill(true, 0, this.rating);
+    this.stars = Array(this.maxStars).fill(true, 0, this.rating);
   }
   
   @Output() ratingChange: EventEmitter<number> = new EventEmitter();
 
-  fillStartsWithColor(index) {
+  fillStarsWithColor(index) {
 
     if(!this.readonly) {
       this.rating = index + 1;
