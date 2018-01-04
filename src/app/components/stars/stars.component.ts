@@ -12,7 +12,7 @@ export class StarsComponent {
 
   private maxStars: number = 5;
 
-  @Input() readonly: boolean = true;
+  @Input() readonly: boolean = true; //display starts only
   
   @Input() get rating(): number {
     return this._rating;
@@ -26,6 +26,7 @@ export class StarsComponent {
     this.stars = Array(this.maxStars).fill(true, 0, this.rating);
   }
   
+  //@Output used by the parent component to recalculate the average rating
   @Output() ratingChange: EventEmitter<number> = new EventEmitter();
 
   fillStarsWithColor(index) {
